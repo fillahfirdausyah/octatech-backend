@@ -22,6 +22,13 @@ app.get('/', (req, res) => {
     res.set('Content-Type', 'text/html')
     res.send(Buffer.from('<h1><center>REST API For Assignments Made By Fillah Firdausyah</h1></center>'))
 })
+// Route
+const userRouter = require('./src/route/user')
+// const blogRouter = require('./src/route/blog')
+
+// Route List
+app.use('/user', userRouter)
+// app.use('/blog', blogRouter)
 
 
 
