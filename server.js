@@ -3,6 +3,7 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 const port = 8000
+const fileUpload = require('express-fileupload')
 
 // Url Encoded
 app.use(express.urlencoded({extended: true}))
@@ -12,6 +13,10 @@ app.use(express.static('public'))
 app.use(cors())
 // Database
 const db = require('./database')
+// File Upload
+app.use(fileUpload({
+    createParentPath: true
+}))
 // END SETUP SERVER //
 
 
