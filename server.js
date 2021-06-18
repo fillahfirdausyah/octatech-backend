@@ -3,6 +3,7 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 const port = 8000
+const jwt = require('jsonwebtoken')
 const fileUpload = require('express-fileupload')
 
 // Url Encoded
@@ -17,6 +18,7 @@ const db = require('./database')
 app.use(fileUpload({
     createParentPath: true
 }))
+
 // END SETUP SERVER //
 
 
@@ -27,13 +29,16 @@ app.get('/', (req, res) => {
     res.set('Content-Type', 'text/html')
     res.send(Buffer.from('<h1><center>REST API For Assignments Made By Fillah Firdausyah</h1></center>'))
 })
+
 // Route
-const userRouter = require('./src/route/user')
-// const blogRouter = require('./src/route/blog')
+const userRouter  = require('./src/route/user')
+const blogRouter  = require('./src/route/blog')
+const pesanRouter = require('./src/route/pesan')
 
 // Route List
 app.use('/user', userRouter)
-// app.use('/blog', blogRouter)
+app.use('/blog', blogRouter)
+app.use('/pesan', pesanRouter)
 
 
 
