@@ -13,5 +13,8 @@ router.post('/add', pesanController.create)
 // Delete
 router.delete('/delete/:id', pesanController.delete)
 
+// Get One
+router.get('/details/:id', pesanController.details)
+
 
 module.exports = router

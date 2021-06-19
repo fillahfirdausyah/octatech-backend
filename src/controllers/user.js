@@ -56,20 +56,22 @@ exports.login = async (req, res) => {
 
   if (!user)
     res.json({
+      code: '404',
       message: "User Not Found",
     });
 
   bcrypt.compare(password, user.password).then((x) => {
     if (!x)
       res.json({
+        code: '204',
         message: "Wrong Username or Password",
       });
 
     accessToken = jwt.sign({ username: user.username, id: user.id }, 'sangat-rahasia');
 
     res.json({
+      code: '200',
       message: "Login Success",
-      data: user,
       token: accessToken
     });
   });

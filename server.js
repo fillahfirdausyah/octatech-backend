@@ -5,6 +5,7 @@ const app = express()
 const port = 8000
 const jwt = require('jsonwebtoken')
 const fileUpload = require('express-fileupload')
+const bodyParser = require('body-parser')
 
 // Url Encoded
 app.use(express.urlencoded({extended: true}))
@@ -18,7 +19,8 @@ const db = require('./database')
 app.use(fileUpload({
     createParentPath: true
 }))
-
+// Body Parser
+app.use(bodyParser.json())
 // END SETUP SERVER //
 
 
@@ -31,14 +33,16 @@ app.get('/', (req, res) => {
 })
 
 // Route
-const userRouter  = require('./src/route/user')
-const blogRouter  = require('./src/route/blog')
-const pesanRouter = require('./src/route/pesan')
+const userRouter    = require('./src/route/user')
+const blogRouter    = require('./src/route/blog')
+const pesanRouter   = require('./src/route/pesan')
+const productRouter = require('./src/route/product')
 
 // Route List
 app.use('/user', userRouter)
 app.use('/blog', blogRouter)
 app.use('/pesan', pesanRouter)
+app.use('/product', productRouter)
 
 
 
