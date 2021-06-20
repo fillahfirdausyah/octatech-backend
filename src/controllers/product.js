@@ -2,6 +2,10 @@ const db = require("../database/models/index");
 
 exports.insert = async (req, res) => {
   try {
+    if (!req.files) {
+      return res.status(500).send({ msg: "file is not found" });
+    }
+
     let time = Math.floor(Date.now() / 1000);
 
     const { nama, harga } = req.body;
@@ -19,7 +23,7 @@ exports.insert = async (req, res) => {
     res.json({
       code: "200",
       message: "Berhasil Menambah Product",
-      data: newData,
+      data: gambar,
     });
   } catch (err) {
     console.log(err);
@@ -106,10 +110,10 @@ exports.update = async (req, res) => {
     gambar.mv("./public/image/product/" + namaGambar);
 
     res.json({
-        code: '200',
-        message: 'Berhaisl update product',
-        data: newData
-    })
+      code: "200",
+      message: "Berhaisl update product",
+      data: newData,
+    });
   } catch (err) {
     console.log(err);
   }
