@@ -4,6 +4,10 @@
   "description": "a provider to provide data",
   "main": "server.js",
   "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test spesificied\" && exit 1 ",
+    "start": "node server.js"
+  },
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",

@@ -2,7 +2,7 @@
 const express = require('express')
 const cors = require('cors')
 const app = express()
-const port = 8000
+const port = process.env.PORT || 8000
 const jwt = require('jsonwebtoken')
 const fileUpload = require('express-fileupload')
 const bodyParser = require('body-parser')
