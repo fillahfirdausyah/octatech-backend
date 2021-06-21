@@ -8,7 +8,7 @@ exports.insert = async (req, res) => {
 
     let time = Math.floor(Date.now() / 1000);
 
-    const { nama, harga } = req.body;
+    const { nama, harga, deskripsi } = req.body;
     const gambar = req.files.gambar;
     const namaGambar = "product" + "-" + time + "-" + gambar.name;
 
@@ -16,6 +16,7 @@ exports.insert = async (req, res) => {
       nama: nama,
       harga: harga,
       gambar: namaGambar,
+      deskripsi: deskripsi
     });
 
     gambar.mv("./public/image/product/" + namaGambar);
@@ -23,7 +24,7 @@ exports.insert = async (req, res) => {
     res.json({
       code: "200",
       message: "Berhasil Menambah Product",
-      data: gambar,
+      data: newData,
     });
   } catch (err) {
     console.log(err);
@@ -90,7 +91,7 @@ exports.update = async (req, res) => {
     let time = Math.floor(Date.now() / 1000);
 
     const { id } = req.params;
-    const { nama, harga } = req.body;
+    const { nama, harga, deskripsi } = req.body;
     const gambar = req.files.gambar;
     const namaGambar = "product" + "-" + time + "-" + gambar.name;
 
@@ -99,6 +100,7 @@ exports.update = async (req, res) => {
         nama: nama,
         harga: harga,
         gambar: namaGambar,
+        deskripsi: deskripsi
       },
       {
         where: {
@@ -111,7 +113,7 @@ exports.update = async (req, res) => {
 
     res.json({
       code: "200",
-      message: "Berhaisl update product",
+      message: "Berhasil update product",
       data: newData,
     });
   } catch (err) {

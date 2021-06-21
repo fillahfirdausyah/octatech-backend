@@ -14,9 +14,9 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "fill",
-    "password": "secret",
-    "database": "database_production",
+    "username": "root",
+    "password": "laskar22",
+    "database": "octatech",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
