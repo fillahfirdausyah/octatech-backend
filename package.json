@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test spesificied\" && exit 1 ",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "npx sequelize-cli db:migrate --env production"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
