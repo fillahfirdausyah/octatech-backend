@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "laskar22",
-    "database": "octatech",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "fnjqsgpfwcooaa",
+    "password": "754c4dc5d4acd1dddd90c8bc446ed98978a0e9ff5cd2404f03c6bb55bffe3b57",
+    "database": "desoss3mbjrvpo",
+    "host": "ec2-35-170-85-206.compute-1.amazonaws.com",
+    "dialect": "postgres"
   }
 }
