@@ -38,6 +38,7 @@ const blogRouter    = require('./src/route/blog')
 const pesanRouter   = require('./src/route/pesan')
 const productRouter = require('./src/route/product')
 const sliderRouter  = require('./src/route/slider')
+const contactRouter = require('./src/route/contact')
 
 // Route List
 app.use('/user', userRouter)
@@ -45,6 +46,7 @@ app.use('/blog', blogRouter)
 app.use('/pesan', pesanRouter)
 app.use('/product', productRouter)
 app.use('/slider', sliderRouter)
+app.use('/contact', contactRouter)
 
 
 
